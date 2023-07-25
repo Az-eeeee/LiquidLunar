@@ -9,7 +9,7 @@ plugins {
 }
 
 group = 'org.cubewhy.lunarcn'
-version = '1.4-build5-pre1-SNAPSHOT'
+version = '1.5-build6-pre2-SNAPSHOT'
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 println("Give us stars -> https://github.com/CubeWhy/LiquidLunar")
@@ -18,8 +18,6 @@ compileJava.options.encoding = "UTF-8"
 
 configurations {
     include
-//    compile
-//    implementation.extendsFrom(compile)
     implementation.extendsFrom(include)
 }
 
@@ -48,6 +46,10 @@ dependencies {
 
     annotationProcessor("org.spongepowered:mixin:0.7.11-SNAPSHOT")
 
+    // agent dep
+//    include "org.ow2.asm:asm-all:5.2"
+//    include 'com.google.guava:guava:31.1-jre'
+
     include "org.jetbrains.kotlin:kotlin-stdlib"
     include 'com.squareup.okhttp3:okhttp:4.11.0'
     include('com.jagrosh:DiscordIPC:0.4') {
@@ -71,7 +73,6 @@ shadowJar {
     exclude "META-INF/maven/**"
     exclude "META-INF/versions/**"
 
-    exclude "org/apache/**"
     exclude "org/junit/**"
 }
 
